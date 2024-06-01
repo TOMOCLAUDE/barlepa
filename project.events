@@ -1,0 +1,14 @@
+a:5:{s:5:"form1";a:2:{s:7:"button1";a:1:{s:7:"onclick";s:29:"ShowForm(c('menu'), SW_SHOW);";}s:6:"image2";a:1:{s:10:"ondblclick";s:75:"MessageBox("В стадии разработки!", "Ошибка доступа к: Установка программ");";}}s:5:"audio";a:4:{s:7:"button1";a:1:{s:7:"onclick";s:25:"c("openDlg1")->execute();";}s:7:"button2";a:1:{s:7:"onclick";s:73:"c("sqPlayer1")->open(
+c("openDlg1")->fileName);
+c("sqPlayer1")->play();";}s:7:"button3";a:1:{s:7:"onclick";s:24:"c("sqPlayer1")->pause();";}s:7:"button4";a:1:{s:7:"onclick";s:23:"c("sqPlayer1")->stop();";}}s:4:"menu";a:3:{s:7:"button1";a:1:{s:7:"onclick";s:30:"ShowForm(c('AUDIO'), SW_SHOW);";}s:7:"button2";a:1:{s:7:"onclick";s:29:"ShowForm(c('NOTE'), SW_SHOW);";}s:7:"button3";a:1:{s:7:"onclick";s:33:"ShowForm(c('INTERNET'), SW_SHOW);";}}s:4:"note";a:3:{s:6:"label1";a:1:{s:7:"onclick";s:284:"c("saveDlg1")->execute(); //Открываем диалог сохранения
+$file = c("saveDlg1")->fileName; //Переменная $file равна названию файла который мы напишем в диалоге сохранения
+$text = c("memo1")->text; //Переменная $text равна тексту c("memo1")->text
+file_put_contents("$file.txt",$text);";}s:6:"label2";a:1:{s:7:"onclick";s:23:"c("memo1")->text = " ";";}s:6:"label3";a:1:{s:7:"onclick";s:343:"c("openDlg1")->execute(); //Открываем диалог выбора файла
+$file = c("openDlg1")->fileName; //Переменная $file равна названию файла который мы выберем
+$text = file_get_contents($file); //Переменная $text = тексту который мы достали из выбранного файла
+c("memo1")->text = $text; //Ну тут вроде понятно текст равен тексту который мы достали.
+";}}s:8:"internet";a:10:{s:5:"edit2";N;s:7:"button2";a:1:{s:7:"onclick";s:9:"google();";}s:7:"button4";a:1:{s:7:"onclick";s:25:"c("chromium1")->goBack();";}s:7:"button5";a:1:{s:7:"onclick";s:25:"c("chromium1")->reload();";}s:7:"button6";a:1:{s:7:"onclick";s:28:"c("chromium1")->goForward();";}s:7:"button1";a:1:{s:7:"onclick";s:39:"c("chromium1")->url = c("edit1")->text;";}s:4:"home";a:1:{s:9:"onexecute";s:43:"c("chromium1")->url = "http://google.com/";";}s:6:"google";a:1:{s:9:"onexecute";s:122:" $search = "https://www.google.ru/search?q=";
+
+$search1 = c("edit2")->text;
+
+c("chromium1")->url = $search . $search1;";}s:9:"chromium1";a:1:{s:20:"ongetdownloadhandler";s:33:"ShowForm(c("saveDlg1"), SW_SHOW);";}s:9:"download1";a:3:{s:10:"oncomplete";s:45:"MessageBox("Загрузка завершена!", "Готово!");";s:7:"onerror";s:48:"MessageBox("Ошибка скачавиния файлов", " Упс!");";s:10:"ondownload";s:33:"ShowForm(c("openDlg1"), SW_SHOW);";}}}
